@@ -1,0 +1,5 @@
+# MAC
+X11 sur MAC : XQUARTZ
+
+export DISPLAY=169.254.202.146:0
+
