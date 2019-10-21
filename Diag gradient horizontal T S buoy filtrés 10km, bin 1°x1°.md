@@ -2,13 +2,16 @@
 #CMEMS diags# #TSG #GuillaumeSérazin
 
 1. filtrage 2D fréquence de coupure 10 points de grille des sorties journalières de surface T et S  : script `/home/albert7a/python/filtering/make_filt_sst_sss_fc10.ksh`, résultats dans le dossier `/scratch/cnt0024/hmg2840/albert7a/NATL60/NATL60-CJM165-S/filt/`, fichiers `NATL60-CJM165_y*.1d_hgradT/S_filt-n80-f0.1.nc`, attention il faut garder la partie « large scale » et pas la partie « fine scale » …
-2. calcul de gradients horizontaux avec le cdftool cdfhgrad, script : `/home/albert7a/EXTRACT/compute_hgrad_surf_TS_filt.ksh`
-3. ajout des tableaux nav_lat nav_lon dans les fichiers : script `replace_nav__file_hgrad.ksh` avec outil fortran dans `/scratch/cnt0024/hmg2840/albert7a/DEV/REPLACE_NAV`
-4. concaténation pour les saisons JFM et JAS : script `make_concat_JFM_JAS.ksh` dans le même dossier
-5. sur occigen, binning 1°x1° et médiane sur les 3 mois : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/binning_1file_3month.py, résultats `/scratch/cnt0024/hmg2840/albert7a/NATL60/NATL60-CJM165-S/filt/NATL60-CJM165_JFM/JAS_hgradT/S_filt10km_bin1x1.nc`
-6. comparison plots are here : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JFM_data-NATL60.png and https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JAS_data-NATL60.png
-7. plots avec échelles log : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JAS_data-NATL60_log.png, https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JFM_data-NATL60_log.png et le ratio entre hiver et été : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_ratio-JFM-JAS_data-NATL60_log.png
-8. binning sur l’année au lieu de 3 mois, concaténation sur l’année `make_concat_annee.ksh` puis binning et médiane sur l’année : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/binning_1file_year.py, résultats `/scratch/cnt0024/hmg2840/albert7a/NATL60/NATL60-CJM165-S/filt/NATL60-CJM165_year_hgradT_filt10km_bin1x1.nc`
+2. calcul de la buoyancy à partir des champs de surface : script `/home/albert7a/python/cdfbuoy/make_cdfbuoy_job_all_NATL60_surf.ksh`
+3. calcul de gradients horizontaux avec le cdftool cdfhgrad, script : `/home/albert7a/EXTRACT/compute_hgrad_surf_TS_filt.ksh`
+4. ajout des tableaux nav_lat nav_lon dans les fichiers : script `/home/albert7a/EXTRACT/replace_nav_file_hgrad.ksh` avec outil fortran dans `/scratch/cnt0024/hmg2840/albert7a/DEV/REPLACE_NAV`
+5. concaténation pour les saisons JFM et JAS : script `make_concat_JFM_JAS.ksh` dans le même dossier
+6. sur occigen, binning 1°x1° et médiane sur les 3 mois : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/binning_1file_3month.py, résultats `/scratch/cnt0024/hmg2840/albert7a/NATL60/NATL60-CJM165-S/filt/NATL60-CJM165_JFM/JAS_hgradT/S_filt10km_bin1x1.nc`
+7. comparison plots are here : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JFM_data-NATL60.png and https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JAS_data-NATL60.png
+8. plots avec échelles log : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JAS_data-NATL60_log.png, https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_JFM_data-NATL60_log.png et le ratio entre hiver et été : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/TSG_ratio-JFM-JAS_data-NATL60_log.png
+9. binning sur l’année au lieu de 3 mois, concaténation sur l’année `make_concat_annee.ksh` puis binning et médiane sur l’année : https://github.com/auraoupa/CMEMS-diags/blob/master/TSG_Guillaume/binning_1file_year.py exécuté sur occigen, résultats `/scratch/cnt0024/hmg2840/albert7a/NATL60/NATL60-CJM165-S/filt/NATL60-CJM165_year_hgradT_filt10km_bin1x1.nc`
+10. binning sur l’année pour les données : sur cal1
+11. distribution dans 3 grandes boîtes GS : 65°W-60°Wx37°N-42°N, NE : 10°E-15°Ex55°N-60°N et AC 32°W-67°Wx31°N-36°N, définition des boîtes dans fichier natl60_3_5_by_5_boxes.py
 
 30 nov. 2018
 

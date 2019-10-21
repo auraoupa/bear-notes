@@ -1,0 +1,91 @@
+# Zarrification eNATL60/NATL60
+Plusieurs solutions qui marchent/ne marchent pas à tour de rôle :
+	- sur cal1, après avoir téléchargé les données
+	- sur visu avec ipython + dask distributed, direct accès aux données
+	- sur occigen avec jupyter + dask jobqueue
+
+
+### dask jobqueue
+
+dans /home/albert7a/.config/dask/jobqueue.yaml, les réglages par défaut pour lancer un job
+
+
+- [ ] eNATL60
+	- [ ] BLBT02
+		- [ ] ssh
+			- [ ] occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud	
+		- [ ] ssu		
+			- [x]  occigen
+			- [ ] 	cal1
+			- [x] hal
+			- [x] cloud
+		- [ ] ssv			
+			- [x] occigen
+			- [ ] 	cal1
+			- [x] hal
+			- [x] cloud
+		- [ ] sst		
+			- [ ] occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud
+		- [ ] sss	
+			- [ ]  occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud
+	- [ ] BLB002
+		- [ ] ssh			
+			- [ ]  occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud
+		- [ ] ssu		
+			- [ ] occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud
+		- [x] ssv	
+			- [ ]  occigen
+			- [ ] 	cal1
+			- [x] hal
+			- [x] cloud
+		- [ ] sst		
+			- [ ]  occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud
+		- [ ] sss			
+			- [ ]  occigen
+			- [ ] 	cal1
+			- [ ] hal
+			- [ ] cloud
+- [ ] NATL60 		
+	- [ ] ssh			
+		- [ ] occigen
+		- [ ] 	cal1
+		- [ ] hal
+		- [ ] cloud
+	- [ ] ssu			
+		- [ ] occigen
+		- [ ] 	cal1
+		- [ ] hal
+		- [ ] cloud
+	- [ ] ssv	
+		- [ ] occigen
+		- [ ] 	cal1
+		- [ ] hal
+		- [ ] cloud
+	- [ ] sst			
+		- [ ] occigen
+		- [ ] 	cal1
+		- [ ] hal
+		- [ ] cloud
+	- [ ] sss
+		- [ ]  occigen
+		- [ ] 	cal1
+		- [ ] hal
+		- [ ] cloud
